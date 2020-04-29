@@ -10,15 +10,14 @@ class AddPlayer extends React.Component {
   onFormSubmit = (event) => {
     event.preventDefault();
 
-    this.props.addPlayer(this.state.name, this.state.initiative, this.props.characterType);
+    this.props.addPlayer(this.state.name, this.state.initiative, 'player');
 
     this.setState({ name: '', initiative: '' });
   }
 
   render() {
     return (
-      <form onSubmit={this.onFormSubmit}
-            style={{ padding: '0 12px 12px' }}>
+      <form onSubmit={this.onFormSubmit}>
         <div className="form-group">
           <label>Name</label>
           <input type="text" className="form-control"
