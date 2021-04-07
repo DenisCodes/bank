@@ -3,16 +3,20 @@ import { connect } from 'react-redux';
 
 import AddPlayer from './AddPlayer';
 
+import { removePlayer } from "../actions";
+
 class TeamList extends React.Component {
 
   renderList() {
-    let characterList = this.props.characters;
+    let characterList = this.props[this.props.stateList];
 
     return characterList.map((char, index) => {
       return (
-        <li className="list-group-item" key={index}>
+        <li className='list-group-item' key={index}>
           { char.name }
-          <button type="button" className="btn btn-danger pull-right">
+          <button type="button"
+                  onClick={() => this.props.removePlayer(char.id) }
+                  className="btn btn-danger" style={{ float: 'right' }}>
             Delete
           </button>
         </li>
@@ -26,8 +30,8 @@ class TeamList extends React.Component {
 
     return (
       <div className="card">
-        <h3>Team List</h3>
-        <AddPlayer />
+        <h3>{this.props.title} List</h3>
+        <AddPlayer characterType={this.props.characterType} />
         <ul className="list-group">
           { characterList }
         </ul>
@@ -39,9 +43,10 @@ class TeamList extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    characters: state.characters.characters
+    players: state.characters.players,
+    enemies: state.characters.enemies,
   };
 };
 
-export default connect(mapStateToProps)(TeamList);
+export default connect(mapStateToProps, { removePlayer })(TeamList);
 //export default TeamList;
