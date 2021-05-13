@@ -1,7 +1,7 @@
 const generateID = () => {
   return `${Date.now()}${Math.floor(Math.random() * 100)}`;
 };
-
+//DB Link http://my-json-server.typicode.com/matthewkeaton5/JsonDB322/accounts
 const DEFAULT_STATE = {
   accounts: [
     { id: 1, name: 'Vlad', amount: 8, type: 'account' },
@@ -19,9 +19,7 @@ const DEFAULT_STATE = {
     { id: 7, name: 'Frost', amount: -1, type: 'transaction' },
     { id: 8, name: 'Storm', amount: 18, type: 'account' },
     { id: 9, name: 'Cloud', amount: 13, type: 'account' },
-  ],
-  account: [],
-  enemies: [],
+  ]
 };
 
 
@@ -54,9 +52,22 @@ const accountReducer = (state, action) => {
     case 'SET_ACCOUNTS':
       return action.payload;
 
+    case 'EDIT_ACCOUNT':
+      //Add Account
+      action.payload.id = generateID();
+      state.accounts.push(action.payload);
+      return sortAccounts(state);
+      //Delete Account
+      const accountEditIndex = state.accounts.findIndex(acc => acc.id === action.payload);
+      state.accounts.splice(accountEditIndex, 1);
+      state.totalAccounts -= 1;
+      return sortAccounts(state);
+
+
     default:
       return !state ? sortAccounts(DEFAULT_STATE) : state;
   }
 }
+
 
 export default accountReducer;

@@ -13,7 +13,14 @@ export const removeAccount = (accountId) => {
     type: 'REMOVE_ACCOUNT',
     payload: accountId
   }
-};
+}
+export const editAccount = (accountId) =>{
+  return{
+    type: 'EDIT_ACCOUNT',
+    payload: accountId
+  }
+
+}
 
 export const nextTurn = () => {
   return {

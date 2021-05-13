@@ -20,7 +20,8 @@ class AccountList extends React.Component {
             Delete
             </button>
             <button type="button"
-                  className="btn btn-success float-right">
+                className="btn btn-success float-right"
+                onClick={() => this.props.editAccount(acc.id) }>
             Edit
             </button>
         </li>
