@@ -4,24 +4,27 @@ const generateID = () => {
 
 const DEFAULT_STATE = {
   accounts: [
-    { id: generateID(), name: 'Vlad', amount: 8, type: 'account' },
-    { id: generateID(), name: 'Vesh', amount: 5, type: 'account' },
-    { id: generateID(), name: 'Kritch', amount: 22, type: 'account' },
-    { id: generateID(), name: 'Azreal', amount: 15, type: 'account' },
-    { id: generateID(), name: 'Tasselhoff', amount: 19, type: 'account' },
-    { id: generateID(), name: 'Fire Giant', amount: 6, type: 'enemy' },
-    { id: generateID(), name: 'Frost Giant', amount: 1, type: 'enemy' },
-    { id: generateID(), name: 'Storm Giant', amount: 18, type: 'enemy' },
-    { id: generateID(), name: 'Cloud Giant', amount: 13, type: 'enemy' },
+    { id: 1, name: 'Vlad', amount: 8, type: 'account' },
+    { id: 2, name: 'Vesh', amount: 5, type: 'account' },
+    { id: 3, name: 'Kritch', amount: 22, type: 'account' },
+    { id: 4, name: 'Azreal', amount: 15, type: 'account' },
+    { id: 5, name: 'Tasselhoff', amount: 19, type: 'account' },
+    { id: 6, name: 'Fire', amount: 6, type: 'account' },
+    { id: 7, name: 'Frost', amount: 1, type: 'account' },
+    { id: 8, name: 'Storm', amount: 18, type: 'account' },
+    { id: 9, name: 'Cloud', amount: 13, type: 'account' },
   ],
-  players: [],
+  account: [],
   enemies: [],
+  transactions: [
+    {}
+  ]
 };
 
 const sortAccounts = (state) => {
   let newState = {
     accounts: [ ...state.accounts ],
-    players: state.accounts.filter(acc => acc.type === 'player'),
+    account: state.accounts.filter(acc => acc.type === 'account'),
     enemies: state.accounts.filter(acc => acc.type === 'enemy'),
     state: state.totalAccounts
   };
@@ -37,14 +40,12 @@ const accountReducer = (state, action) => {
       action.payload.id = generateID();
       state.accounts.push(action.payload);
       return sortAccounts(state);
-      break;
 
     case 'REMOVE_ACCOUNT':
       const accountIndex = state.accounts.findIndex(acc => acc.id === action.payload);
       state.accounts.splice(accountIndex, 1);
       state.totalAccounts -= 1;
       return sortAccounts(state);
-      break;
 
     case 'SET_ACCOUNTS':
       return action.payload;

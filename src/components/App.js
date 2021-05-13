@@ -17,7 +17,7 @@ const App = () => {
         </div>
 
         <div className="col-sm-4">
-          <AccountList title="Enemies" stateList="enemies" accountType="enemy" />
+          <AccountList title="Transaction" stateList="enemies" accountType="enemy" />
         </div>
 
       </div>
