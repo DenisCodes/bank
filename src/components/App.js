@@ -1,23 +1,28 @@
 import React from 'react';
 
-
+import TeamList from './TeamList';
+import InitiativeList from "./InitiativeList";
 
 const App = () => {
-    return <div className="container" style={{marginTop: '15px'}}>
-        <div className="row">
-            <div className="col-sm-4">
-                Account 1
-            </div>
+  return (
+    <div className="container">
+      <div className="row">
 
-            <div className="col-sm-4">
-                Combined List
-            </div>
-
-            <div className="col-sm-4">
-                Account 2
-            </div>
+        <div className="col-sm-4">
+          <TeamList title="Players" stateList="players" characterType="player" />
         </div>
-    </div>;
-}
+
+        <div className="col-sm-4">
+          <InitiativeList/>
+        </div>
+
+        <div className="col-sm-4">
+          <TeamList title="Enemies" stateList="enemies" characterType="enemy" />
+        </div>
+
+      </div>
+    </div>
+  );
+};
 
 export default App;
