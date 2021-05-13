@@ -12,11 +12,16 @@ class AccountList extends React.Component {
 
     return accountList.map((acc, index) => {
       return (
-        <li className='list-group-item' key={index}>
+        <li className='list-group-item text-center' key={index}>
           { acc.name }
-          <button type="button"
+            <button class="pl-1" type="button"
+                    onClick={() => this.props.removeAccount(acc.id) }
+                    className="btn btn-success float-left">
+                Edit
+            </button>
+            <button type="button"
                   onClick={() => this.props.removeAccount(acc.id) }
-                  className="btn btn-danger" style={{ float: 'right' }}>
+                  className="btn btn-danger float-right">
             Delete
           </button>
         </li>
