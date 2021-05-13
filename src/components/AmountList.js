@@ -28,7 +28,7 @@ const AmountList = (props) => {
 
 const mapStateProps = (state) => {
     return {
-        accounts: state.accounts.accounts,
+        accounts: state.accounts.account,
         currentTurn: state.turn.current,
     }
 };
