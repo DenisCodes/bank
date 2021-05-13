@@ -46,7 +46,7 @@ const accountReducer = (state, action) => {
       return sortAccounts(state);
 
     case 'REMOVE_ACCOUNT':
-      const accountIndex = state.accounts.findIndex(acc => acc.id === action.payload);
+      const accountIndex = state.accounts.findIndex(acc => acc.id === action.payload & acc.type === 'account');
       state.accounts.splice(accountIndex, 1);
       state.totalAccounts -= 1;
       return sortAccounts(state);
