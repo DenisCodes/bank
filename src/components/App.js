@@ -10,7 +10,7 @@ const App = () => {
       <div className="row">
 
         <div className="col-sm-4">
-          <AccountList title="Accounts" stateList="accounts" accountType="account" />
+          <AccountList title="Account" stateList="accounts" accountType="account" />
         </div>
 
         <div className="col-sm-4">
