@@ -14,7 +14,10 @@ class TransactionList extends React.Component {
             return (
                 <li className='list-group-item' key={index}>
                     { acc.name }
-                    <span className="badge badge-primary badge-pull">{ '$'+acc.amount+'.00' }</span>
+                    <button className="pl-1" type="button" className="btn btn-success float-right" style={{marginLeft: '5px'}}>
+                        view
+                    </button>
+                    <span className="badge badge-primary badge-pull float-right">{ '$'+acc.amount+'.00' }</span>
                 </li>
             );
         });
@@ -27,7 +30,6 @@ class TransactionList extends React.Component {
         return (
             <div className="card">
                 <h3>{this.props.title} List</h3>
-                <AddAccount accountType={this.props.accountType} />
                 <ul className="list-group">
                     { transactionList }
                 </ul>

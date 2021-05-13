@@ -8,9 +8,6 @@ const AmountList = (props) => {
         return b.amount - a.amount;
     }).map((acc, index) => {
         let classes = 'list-group-item d-flex justify-content-between align-items-center';
-        if (props.currentTurn === index) {
-            classes = classes.concat(' active');
-        }
         return (
             <li key={acc.id}
                 className={classes}>
@@ -22,10 +19,6 @@ const AmountList = (props) => {
 
     return (
         <div>
-            <div className="d-flex justify-content-between align-items-center" style={{marginBottom: '15px'}}>
-                <button className="btn btn-primary" onClick={props.prevTurn}>Previous</button>
-                <button className="btn btn-primary" onClick={props.nextTurn}>Next</button>
-            </div>
             <ul className="list-group">
                 { accountList }
             </ul>
