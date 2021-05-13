@@ -15,11 +15,11 @@ class AccountList extends React.Component {
         <li className='list-group-item' key={index}>
           { acc.name }
             <button class="pl-1" type="button"
+                    onClick={() => this.props.removeAccount(acc.id) }
                     className="btn btn-danger float-right">
                 Delete
             </button>
             <button type="button"
-                  onClick={() => this.props.removeAccount(acc.id) }
                   className="btn btn-success float-right">
             Edit
           </button>
