@@ -1,23 +1,23 @@
 const DEFAULT_STATE = {
   current: 0,
-  numCharacters: 9
+  numAccounts: 9
 };
 
 const turnReducer = (state = DEFAULT_STATE, action) => {
   const newState = { ...state };
   switch (action.type) {
 
-    case 'ADD_PLAYER':
-      newState.numCharacters += 1;
+    case 'ADD_ACCOUNT':
+      newState.numAccounts += 1;
       return newState;
 
-    case 'REMOVE_PLAYER':
-      newState.numCharacters -= 1;
+    case 'REMOVE_ACCOUNT':
+      newState.numAccounts -= 1;
       return newState;
 
     case 'NEXT_TURN':
       newState.current += 1;
-      if (newState.current === newState.numCharacters) {
+      if (newState.current === newState.numAccounts) {
         newState.current = 0;
       }
       return newState;
@@ -25,7 +25,7 @@ const turnReducer = (state = DEFAULT_STATE, action) => {
     case 'PREV_TURN':
       newState.current -= 1;
       if (newState.current === -1) {
-        newState.current = newState.numCharacters - 1;
+        newState.current = newState.numAccounts - 1;
       }
       return newState;
 

@@ -1,7 +1,7 @@
 import React from 'react';
 
-import TeamList from './TeamList';
-import InitiativeList from "./InitiativeList";
+import AccountList from './AccountList';
+import AmountList from "./AmountList";
 
 const App = () => {
   return (
@@ -9,15 +9,15 @@ const App = () => {
       <div className="row">
 
         <div className="col-sm-4">
-          <TeamList title="Players" stateList="players" characterType="player" />
+          <AccountList title="Accounts" stateList="accounts" accountType="account" />
         </div>
 
         <div className="col-sm-4">
-          <InitiativeList/>
+          <AmountList/>
         </div>
 
         <div className="col-sm-4">
-          <TeamList title="Enemies" stateList="enemies" characterType="enemy" />
+          <AccountList title="Enemies" stateList="enemies" accountType="enemy" />
         </div>
 
       </div>

@@ -1,18 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { addPlayer } from "../actions";
+import { addAccount } from "../actions";
 
-class AddPlayer extends React.Component {
+class AddAccount extends React.Component {
 
-  state = { name: '', initiative: '' }
+  state = { name: '', amount: '' }
 
   onFormSubmit = (event) => {
     event.preventDefault();
 
-    this.props.addPlayer(this.state.name, this.state.initiative, this.props.characterType);
+    this.props.addAccount(this.state.name, this.state.amount, this.props.accountType);
 
-    this.setState({ name: '', initiative: '' });
+    this.setState({ name: '', amount: '' });
   }
 
   render() {
@@ -28,18 +28,18 @@ class AddPlayer extends React.Component {
         </div>
 
         <div className="form-group">
-          <label>Initiative</label>
+          <label>Amount</label>
           <input type="text" className="form-control"
-                 name="initative"
-                 value={this.state.initiative}
-                 onChange={event => this.setState({ initiative: event.target.value })} />
+                 name="amount"
+                 value={this.state.amount}
+                 onChange={event => this.setState({ amount: event.target.value })} />
         </div>
 
-        <input type="submit" className="btn btn-success" value={ 'Add Player' } />
+        <input type="submit" className="btn btn-success" value={ 'Add Account' } />
       </form>
     );
   }
 
 }
 
-export default connect(null, { addPlayer })(AddPlayer);
+export default connect(null, { addAccount })(AddAccount);

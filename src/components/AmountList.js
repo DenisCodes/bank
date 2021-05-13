@@ -3,19 +3,19 @@ import { connect } from 'react-redux';
 
 import {nextTurn, prevTurn} from "../actions";
 
-const InitativeList = (props) => {
-  const characterList = props.characters.sort((a, b) => {
-    return b.initiative - a.initiative;
-  }).map((char, index) => {
+const AmountList = (props) => {
+  const accountList = props.accounts.sort((a, b) => {
+    return b.amount - a.amount;
+  }).map((acc, index) => {
     let classes = 'list-group-item d-flex justify-content-between align-items-center';
     if (props.currentTurn === index) {
       classes = classes.concat(' active');
     }
     return (
-      <li key={char.id}
+      <li key={acc.id}
           className={classes}>
-        { char.name }
-        <span className="badge badge-primary badge-pull">{ char.initiative }</span>
+        { acc.name }
+        <span className="badge badge-primary badge-pull">{ '$'+acc.amount+'.00' }</span>
       </li>
     )
   });
@@ -27,7 +27,7 @@ const InitativeList = (props) => {
         <button className="btn btn-primary" onClick={props.nextTurn}>Next</button>
       </div>
       <ul className="list-group">
-        { characterList }
+        { accountList }
       </ul>
     </div>
   )
@@ -35,9 +35,9 @@ const InitativeList = (props) => {
 
 const mapStateProps = (state) => {
   return {
-    characters: state.characters.characters,
+    accounts: state.accounts.accounts,
     currentTurn: state.turn.current,
   }
 };
 
-export default connect(mapStateProps, { nextTurn, prevTurn })(InitativeList);
+export default connect(mapStateProps, { nextTurn, prevTurn })(AmountList);
