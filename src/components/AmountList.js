@@ -18,7 +18,8 @@ const AmountList = (props) => {
     });
 
     return (
-        <div>
+        <div className="card">
+            <h3>Account List</h3>
             <ul className="list-group">
                 { accountList }
             </ul>
