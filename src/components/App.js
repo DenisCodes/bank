@@ -2,6 +2,7 @@ import React from 'react';
 
 import AccountList from './AccountList';
 import AmountList from "./AmountList";
+import TransactionList from "./TransactionList";
 
 const App = () => {
   return (
@@ -17,7 +18,7 @@ const App = () => {
         </div>
 
         <div className="col-sm-4">
-          <AccountList title="Transaction" stateList="enemies" accountType="enemy" />
+          <TransactionList title="Transaction" stateList="transactions" accountType="transaction" />
         </div>
 
       </div>

@@ -48,7 +48,7 @@ class AccountList extends React.Component {
 const mapStateToProps = state => {
   return {
     accounts: state.accounts.accounts,
-    enemies: state.accounts.enemies,
+    transactions: state.accounts.transactions,
   };
 };
 
