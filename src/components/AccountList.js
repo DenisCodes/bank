@@ -22,7 +22,7 @@ class AccountList extends React.Component {
             <button type="button"
                   className="btn btn-success float-right">
             Edit
-          </button>
+            </button>
         </li>
       );
     });
