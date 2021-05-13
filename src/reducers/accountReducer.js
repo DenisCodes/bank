@@ -17,7 +17,16 @@ const DEFAULT_STATE = {
   account: [],
   enemies: [],
   transactions: [
-    {}
+    {id: 1, change: -1},
+    {id: 1, change: 10},
+    {id: 1, change: -3},
+    {id: 4, change: -45},
+    {id: 4, change: 56},
+    {id: 9, change: -12},
+    {id: 9, change: 10},
+    {id: 3, change: 13},
+    {id: 7, change: -1},
+    {id: 8, change: 15},
   ]
 };
 
@@ -26,6 +35,7 @@ const sortAccounts = (state) => {
     accounts: [ ...state.accounts ],
     account: state.accounts.filter(acc => acc.type === 'account'),
     enemies: state.accounts.filter(acc => acc.type === 'enemy'),
+    transactions: state.transactions,
     state: state.totalAccounts
   };
 
