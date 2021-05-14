@@ -16,7 +16,13 @@ const turnReducer = (state = DEFAULT_STATE, action) => {
       return newState;
 
     case 'VIEW_ACCOUNT':
+      console.log('reached4')
       return state;
+
+    case 'SET_TASKS':
+      console.log('reached3')
+      newState.numAccounts = state.length;
+      return newState;
 
     case 'NEXT_TURN':
       newState.current += 1;

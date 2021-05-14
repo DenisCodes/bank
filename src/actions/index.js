@@ -7,6 +7,15 @@ export const addAccount = (name, amount, type) => {
   }
 };
 
+export const setTasks = tasks => {
+  console.log('reached2')
+  console.log(tasks)
+  return {
+    type: 'SET_TASKS',
+    payload: tasks
+  }
+};
+
 export const removeAccount = (accountId) => {
   return {
     type: 'REMOVE_ACCOUNT',
@@ -18,7 +27,6 @@ export const editAccount = (accountId) =>{
     type: 'EDIT_ACCOUNT',
     payload: accountId
   }
-
 }
 
 export const viewAccount = (accountId) => {

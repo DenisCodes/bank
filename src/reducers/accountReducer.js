@@ -2,8 +2,8 @@ import axios from 'axios';
 const generateID = () => {
   return `${Date.now()}${Math.floor(Math.random() * 100)}`;
 };
+/*
 //DB Link http://my-json-server.typicode.com/matthewkeaton5/JsonDB322/accounts
-let firstRun = 0;
 const getDataBase = () => {
   axios.get('http://my-json-server.typicode.com/matthewkeaton5/JsonDB322/accounts')
       .then(response => {
@@ -18,8 +18,12 @@ const getDataBase = () => {
 }
 getDataBase();
 
+ */
+
 var DEFAULT_STATE = {
-  accounts: []
+  accounts: [
+    { id: 1, name: 'Vlad', amount: 8, type: 'account', view: true }
+  ]
 };
 
 const sortAccounts = (states) => {
@@ -29,7 +33,7 @@ const sortAccounts = (states) => {
   let newState = {
     accounts: [states.accounts],
     account: states.accounts.filter(acc => acc.type === 'account'),
-    transactions: states.accounts.filter(acc => acc.type === 'transaction'),
+    transactions: states.accounts.filter(acc => acc.type === 'transaction' & acc.view === true),
     state: states.totalAccounts
   };
 
@@ -38,6 +42,7 @@ const sortAccounts = (states) => {
 
 
 const accountReducer = (state, action) => {
+
   switch (action.type) {
 
     case 'ADD_ACCOUNT':
@@ -52,7 +57,9 @@ const accountReducer = (state, action) => {
       return sortAccounts(state);
 
     case 'SET_ACCOUNTS':
-      return action.payload;
+      console.log('reached')
+      state.accounts = action.payload;
+      return sortAccounts(state);
 
     case 'EDIT_ACCOUNT':
       //Add Account
