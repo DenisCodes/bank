@@ -1,0 +1,11 @@
+Index: src/react-app-env.d.ts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/react-app-env.d.ts b/src/react-app-env.d.ts
+new file mode 100644
+--- /dev/null	(date 1620875313304)
++++ b/src/react-app-env.d.ts	(date 1620875313304)
+@@ -0,0 +1,1 @@
++/// <reference types="react-scripts" />

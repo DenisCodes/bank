@@ -1,0 +1,51 @@
+Index: package-lock.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/package-lock.json b/package-lock.json
+--- a/package-lock.json	(revision fd10251158eb82c71252957c7529a3a7c8f20289)
++++ b/package-lock.json	(date 1620871005659)
+@@ -13014,6 +13014,11 @@
+       "resolved": "https://registry.npmjs.org/typedarray/-/typedarray-0.0.6.tgz",
+       "integrity": "sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c="
+     },
++    "typescript": {
++      "version": "4.2.4",
++      "resolved": "https://registry.npmjs.org/typescript/-/typescript-4.2.4.tgz",
++      "integrity": "sha512-V+evlYHZnQkaz8TRBuxTA92yZBPotr5H+WhQ7bD3hZUndx5tGOa1fuCgeSjxAzM1RiN5IzvadIXTVefuuwZCRg=="
++    },
+     "unicode-canonical-property-names-ecmascript": {
+       "version": "1.0.4",
+       "resolved": "https://registry.npmjs.org/unicode-canonical-property-names-ecmascript/-/unicode-canonical-property-names-ecmascript-1.0.4.tgz",
+Index: src/react-app-env.d.ts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/react-app-env.d.ts b/src/react-app-env.d.ts
+new file mode 100644
+--- /dev/null	(date 1620871054185)
++++ b/src/react-app-env.d.ts	(date 1620871054185)
+@@ -0,0 +1,1 @@
++/// <reference types="react-scripts" />
+Index: package.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{\r\n  \"name\": \"init-tracker\",\r\n  \"version\": \"0.1.0\",\r\n  \"private\": true,\r\n  \"dependencies\": {\r\n    \"@testing-library/jest-dom\": \"^4.2.4\",\r\n    \"@testing-library/react\": \"^9.5.0\",\r\n    \"@testing-library/user-event\": \"^7.2.1\",\r\n    \"react\": \"^16.13.1\",\r\n    \"react-dom\": \"^16.13.1\",\r\n    \"react-redux\": \"^7.2.0\",\r\n    \"react-scripts\": \"3.4.1\",\r\n    \"redux\": \"^4.0.5\"\r\n  },\r\n  \"scripts\": {\r\n    \"start\": \"react-scripts start\",\r\n    \"build\": \"react-scripts build\",\r\n    \"test\": \"react-scripts test\",\r\n    \"eject\": \"react-scripts eject\"\r\n  },\r\n  \"eslintConfig\": {\r\n    \"extends\": \"react-app\"\r\n  },\r\n  \"browserslist\": {\r\n    \"production\": [\r\n      \">0.2%\",\r\n      \"not dead\",\r\n      \"not op_mini all\"\r\n    ],\r\n    \"development\": [\r\n      \"last 1 chrome version\",\r\n      \"last 1 firefox version\",\r\n      \"last 1 safari version\"\r\n    ]\r\n  }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/package.json b/package.json
+--- a/package.json	(revision fd10251158eb82c71252957c7529a3a7c8f20289)
++++ b/package.json	(date 1620871005040)
+@@ -10,7 +10,8 @@
+     "react-dom": "^16.13.1",
+     "react-redux": "^7.2.0",
+     "react-scripts": "3.4.1",
+-    "redux": "^4.0.5"
++    "redux": "^4.0.5",
++    "typescript": "^4.2.4"
+   },
+   "scripts": {
+     "start": "react-scripts start",

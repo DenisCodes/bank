@@ -54,5 +54,16 @@ const mapStateToProps = state => {
   };
 };
 
+
+/*
+export const editAccount = Key => ({
+type: 'Edit_List',
+    payload:key
+
+})
+*/
+
+
 export default connect(mapStateToProps, { removeAccount })(AccountList);
 //export default AccountList;
+
