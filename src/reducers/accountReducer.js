@@ -1,34 +1,36 @@
+import axios from 'axios';
 const generateID = () => {
   return `${Date.now()}${Math.floor(Math.random() * 100)}`;
 };
 //DB Link http://my-json-server.typicode.com/matthewkeaton5/JsonDB322/accounts
-const DEFAULT_STATE = {
-  accounts: [
-    { id: 1, name: 'Vlad', amount: 8, type: 'account' },
-    { id: 1, name: 'Vlad', amount: -8, type: 'transaction' },
-    { id: 1, name: 'Vlad', amount: 10, type: 'transaction' },
-    { id: 1, name: 'Vlad', amount: 8, type: 'transaction' },
-    { id: 2, name: 'Vesh', amount: 5, type: 'account' },
-    { id: 3, name: 'Kritch', amount: 22, type: 'transaction' },
-    { id: 3, name: 'Kritch', amount: -22, type: 'transaction' },
-    { id: 3, name: 'Kritch', amount: 22, type: 'account' },
-    { id: 4, name: 'Azreal', amount: 15, type: 'account' },
-    { id: 5, name: 'Tasselhoff', amount: 19, type: 'account' },
-    { id: 6, name: 'Fire', amount: 6, type: 'account' },
-    { id: 7, name: 'Frost', amount: 1, type: 'account' },
-    { id: 7, name: 'Frost', amount: -1, type: 'transaction' },
-    { id: 8, name: 'Storm', amount: 18, type: 'account' },
-    { id: 9, name: 'Cloud', amount: 13, type: 'account' },
-  ]
+let firstRun = 0;
+
+const getDataBase = () => {
+  axios.get('http://my-json-server.typicode.com/matthewkeaton5/JsonDB322/accounts')
+      .then(response => {
+        console.log(response.data);
+        DEFAULT_STATE.accounts = response.data;
+        console.log(DEFAULT_STATE)
+      }).catch(error => {
+    console.log(error);
+    this.setState({errorMessage: error.message});
+  });
+}
+getDataBase();
+
+var DEFAULT_STATE = {
+  accounts: []
 };
 
+const sortAccounts = (states) => {
+  for(var state in states){
 
-const sortAccounts = (state) => {
+  }
   let newState = {
-    accounts: [ ...state.accounts ],
-    account: state.accounts.filter(acc => acc.type === 'account'),
-    transactions: state.accounts.filter(acc => acc.type === 'transaction'),
-    state: state.totalAccounts
+    accounts: [states.accounts],
+    account: states.accounts.filter(acc => acc.type === 'account'),
+    transactions: states.accounts.filter(acc => acc.type === 'transaction'),
+    state: states.totalAccounts
   };
 
   return newState;
@@ -56,7 +58,6 @@ const accountReducer = (state, action) => {
       //Add Account
       action.payload.id = generateID();
       state.accounts.push(action.payload);
-      return sortAccounts(state);
       //Delete Account
       const accountEditIndex = state.accounts.findIndex(acc => acc.id === action.payload);
       state.accounts.splice(accountEditIndex, 1);
