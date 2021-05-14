@@ -4,7 +4,6 @@ const generateID = () => {
 };
 //DB Link http://my-json-server.typicode.com/matthewkeaton5/JsonDB322/accounts
 let firstRun = 0;
-
 const getDataBase = () => {
   axios.get('http://my-json-server.typicode.com/matthewkeaton5/JsonDB322/accounts')
       .then(response => {
