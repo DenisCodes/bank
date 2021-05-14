@@ -9,6 +9,7 @@ const getDataBase = () => {
       .then(response => {
         console.log(response.data);
         DEFAULT_STATE.accounts = response.data;
+
         console.log(DEFAULT_STATE)
       }).catch(error => {
     console.log(error);
