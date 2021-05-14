@@ -1,9 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import AddAccount from './AddAccount';
-
-import { removeAccount } from "../actions";
+import { viewAccount } from "../actions";
 
 class TransactionList extends React.Component {
 
@@ -14,9 +12,6 @@ class TransactionList extends React.Component {
             return (
                 <li className='list-group-item' key={index}>
                     { acc.name }
-                    <button className="pl-1" type="button" className="btn btn-success float-right" style={{marginLeft: '5px'}}>
-                        view
-                    </button>
                     <span className="badge badge-primary badge-pull float-right">{ '$'+acc.amount+'.00' }</span>
                 </li>
             );
@@ -46,5 +41,5 @@ const mapStateToProps = state => {
     };
 };
 
-export default connect(mapStateToProps, { removeAccount })(TransactionList);
+export default connect(mapStateToProps, { viewAccount })(TransactionList);
 //export default AccountList;

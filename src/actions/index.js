@@ -1,4 +1,3 @@
-
 export const addAccount = (name, amount, type) => {
   return {
     type: 'ADD_ACCOUNT',
@@ -21,6 +20,13 @@ export const editAccount = (accountId) =>{
   }
 
 }
+
+export const viewAccount = (accountId) => {
+  return {
+    type: 'VIEW_ACCOUNT',
+    payload: accountId
+  }
+};
 
 export const nextTurn = () => {
   return {

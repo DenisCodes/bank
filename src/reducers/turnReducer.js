@@ -15,6 +15,9 @@ const turnReducer = (state = DEFAULT_STATE, action) => {
       newState.numAccounts -= 1;
       return newState;
 
+    case 'VIEW_ACCOUNT':
+      return state;
+
     case 'NEXT_TURN':
       newState.current += 1;
       if (newState.current === newState.numAccounts) {
