@@ -20,10 +20,8 @@ getDataBase();
 
  */
 
-var DEFAULT_STATE = {
-  accounts: [
-    { id: 1, name: 'Vlad', amount: 8, type: 'account', view: true }
-  ]
+const DEFAULT_STATE = {
+  accounts: []
 };
 
 const sortAccounts = (states) => {
@@ -31,7 +29,7 @@ const sortAccounts = (states) => {
 
   }
   let newState = {
-    accounts: [states.accounts],
+    accounts: [...states.accounts],
     account: states.accounts.filter(acc => acc.type === 'account'),
     transactions: states.accounts.filter(acc => acc.type === 'transaction' & acc.view === true),
     state: states.totalAccounts
@@ -42,7 +40,7 @@ const sortAccounts = (states) => {
 
 
 const accountReducer = (state, action) => {
-
+  console.log(action)
   switch (action.type) {
 
     case 'ADD_ACCOUNT':
@@ -56,9 +54,21 @@ const accountReducer = (state, action) => {
       state.totalAccounts -= 1;
       return sortAccounts(state);
 
-    case 'SET_ACCOUNTS':
-      console.log('reached')
-      state.accounts = action.payload;
+    case 'SET_TASKS':
+      var newState = {
+        accounts: []
+      };
+      newState.accounts = action.payload;
+      return sortAccounts(newState);
+
+    case 'VIEW_ACCOUNT':
+      state.accounts.forEach(
+          function(element){
+            if (element.id === action.payload && element.type === 'transaction'){
+              element.view = true;
+            }else{
+              element.view = false;
+            }});
       return sortAccounts(state);
 
     case 'EDIT_ACCOUNT':

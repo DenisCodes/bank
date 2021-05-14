@@ -45,7 +45,7 @@ class App extends React.Component {
 }
   const  mapStateProps = (state) => {
     return {
-      accounts: state.accounts.account,
+      accounts: state.accounts,
       currentTurn: state.turn.current,
       transactions: state.accounts.transactions,
     }
